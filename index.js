@@ -12,6 +12,7 @@ app.post('/webhook/enroll', (req, res) => {
 
 app.post('/register', async (req, res) => {
   const { name, email } = req.body.input;
+  console.log('Registering student:', { name, email });
 
   // Run custom logic (DB check, logging, validations)
   const student_id = `sid_${Math.floor(Math.random() * 10000)}`;
