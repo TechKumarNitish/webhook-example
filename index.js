@@ -10,6 +10,15 @@ app.post('/webhook/enroll', (req, res) => {
   res.status(200).json({ message: 'Event received' });
 });
 
+app.post('/register', async (req, res) => {
+  const { name, email } = req.body.input;
+
+  // Run custom logic (DB check, logging, validations)
+  const student_id = `sid_${Math.floor(Math.random() * 10000)}`;
+
+  res.json({ student_id });
+});
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`Webhook server running on port ${PORT}`);
